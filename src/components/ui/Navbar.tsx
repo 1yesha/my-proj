@@ -19,6 +19,6 @@ const [active, setActive] = useState<string | null>(null);
            </MenuItem>
         </Menu> 
     </div>
-)
+  )
 }
 export default Navbar
