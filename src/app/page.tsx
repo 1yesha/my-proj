@@ -1,8 +1,13 @@
+'use client'
+import HeroSection from '@/components/ui/HeroSection'
 import React from 'react'
 
 const page = () => {
   return (
-    <div className="bg-slate-200 p-8">Home page</div>
+    <main className= 'min-h-screen bg-black/[0.96] bg-grid-white/[0.o7]'>
+<HeroSection/>
+    </main>
+    
   )
 }
 
