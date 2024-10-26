@@ -1,6 +1,5 @@
-
-import { Spotlight } from "../ui/Spotlight"
-import { Button } from "../ui/moving-border"; 
+import { Spotlight } from "@/components/ui/Spotlight";
+import { Button } from "@/components/ui/MovingBorder";
 const HeroSection = () => {
   return (
     <div className="h-auto md:h-[40rem] w-full bg-black rounded-md flex flex-col items-center justify-center
@@ -8,7 +7,7 @@ const HeroSection = () => {
      <Spotlight className="top-40 left-0 md:left-60 md:top-20"
      fill="white"/>   
      <div className='p-4 relative z-10 w-full text-center'>
-        <h1 className='mt-20 md:mt-0 text-4xl md:text-7xl font-bond bg-clip-text text-white bg-gradient-to-b
+        <h1 className='mt-20 md:mt-0 text-4xl md:text-7xl font-bond bg-clip-text text-neutral-300 bg-gradient-to-b
         form-neutral-50 to-netural-400'>
             Master the Craft of Coding
         </h1>
@@ -17,7 +16,7 @@ const HeroSection = () => {
              Whether you are a beginner or looking to refine your programming skills, join us to unlock your true coding potential.</p>
        <div className="mt-4 font-normal text-base md:text-lg text-neutral-300 max-w-lg mx-auto ">
          <link href ="courses"/>
-           <Button borderRadius="1.75rem" className="bg-black text-white border-slate-800">
+           <Button borderRadius="1.75rem" className="bg-black text-white border-slate-800 rounded-full">
             Explore courses
         </Button>
      </div>

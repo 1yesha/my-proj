@@ -1,0 +1,57 @@
+
+{
+"courses": [
+  {
+      "id": 1,
+      "title": "Game Developments",
+      "slug": "game-development",
+      "description": "Level up your game development skills with advanced techniques and build immersive experiences from concept to completion.",
+      "price": 99.99,
+      "instructor": "m ali raza",
+      "isFeatured": true,
+      "image":"/courses/Game Developments.jpeg"
+  },
+  {
+    "id": 2,
+    "title":"Mastering Mobile Mastery",
+    "slug": "Mastering Mobile Mastery",
+    "description": "Elevate your app development skills with advanced techniques tailored for intermediate to advanced developers.",
+    "price": 99.99,
+    "instructor": "m ali raza",
+    "isFeatured": true,
+  "image":"/courses/Mastering Mobile Mastery.jpeg"
+  },
+  {
+    "id": 3,
+    "title":"Web Wizards",
+    "slug": "Web Wizards",
+    "description": "Enhance your web development skills with advanced techniques for intermediate to advanced developers.",
+    "price": 99.99,
+    "instructor": "m ali raza",
+    "isFeatured": true,
+    "image":"/courses/Web Wizards.png"
+  },
+  {
+   "id": 4,
+    "title":"Mastering Next.js",
+    "slug": "Mastering Next.js",
+    "description": "Level up your Next.js expertise with cutting-edge techniques designed for intermediate to advanced developers.",
+    "price": 99.99,
+    "instructor": "m ali raza",
+    "isFeatured": false,
+    "image":"/courses/mastery.jpeg"
+
+  },
+  {
+    
+   "id": 5,
+   "title":"AI generative mastery",
+   "slug": "AI Generative Mastery",
+   "description": "Enhance your AI development skills with advanced generative techniques for intermediate to advanced ",
+   "price": 99.99,
+   "instructor": "m ali raza",
+   "isFeatured": true ,
+   "image":"/courses/AI generative mastery.jpeg"
+  }
+  ]}
+

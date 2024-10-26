@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useRef, useEffect, useState } from "react";
 import {
   motion,
   useAnimationFrame,
@@ -7,7 +7,6 @@ import {
   useMotionValue,
   useTransform,
 } from "framer-motion";
-import { useRef } from "react";
 import { cn } from "@/lib/utils";
 
 export function Button({
@@ -22,12 +21,12 @@ export function Button({
 }: {
   borderRadius?: string;
   children: React.ReactNode;
-  as?: any;
+  as?: React.ElementType; // Replaced any with React.ElementType
   containerClassName?: string;
   borderClassName?: string;
   duration?: number;
   className?: string;
-  [key: string]: any;
+  [key: string]: unknown;
 }) {
   return (
     <Component
@@ -60,14 +59,14 @@ export function Button({
           className
         )}
         style={{
-          borderRadius: `calc(${borderRadius} * 0.96)`,
-        }}
-      >
-        {children}
-      </div>
-    </Component>
-  );
-}
+            borderRadius:' calc(${borderRadius} * 0.96)'
+          }}
+        >
+          {children}
+        </div>
+      </Component>
+    );
+  }  
 
 export const MovingBorder = ({
   children,
@@ -80,16 +79,23 @@ export const MovingBorder = ({
   duration?: number;
   rx?: string;
   ry?: string;
-  [key: string]: any;
-}) => {
-  const pathRef = useRef<any>();
+   // Updated type from any to unknown
+}& React.SVGProps<SVGSVGElement>
+) => {
+  const pathRef = useRef<SVGRectElement>(null); // Stronger typing for ref
   const progress = useMotionValue<number>(0);
+  const [pathLength, setPathLength] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (pathRef.current) {
+      setPathLength(pathRef.current.getTotalLength());
+    }
+  }, [pathRef]);
 
   useAnimationFrame((time) => {
-    const length = pathRef.current?.getTotalLength();
-    if (length) {
-      const pxPerMillisecond = length / duration;
-      progress.set((time * pxPerMillisecond) % length);
+    if (pathLength) {
+      const pxPerMillisecond = pathLength / duration;
+      progress.set((time * pxPerMillisecond) % pathLength);
     }
   });
 

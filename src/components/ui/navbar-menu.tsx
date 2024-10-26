@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 
-
 const transition = {
   type: "spring",
   mass: 0.5,
@@ -39,7 +38,7 @@ export const MenuItem = ({
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={transition}
         >
-          {active === item && (
+          {active === item && children && (
             <div className="absolute top-[calc(100%_+_1.2rem)] left-1/2 transform -translate-x-1/2 pt-4">
               <motion.div
                 transition={transition}
@@ -110,14 +109,13 @@ export const ProductItem = ({
   );
 };
 
-export const HoveredLink = ({children, ...rest}:any) => {
-    return (
-      <Link
-        {...rest}
-        className="text-neutral-700 dark:text-neutral-200 hover:text-black"
-      >
-        {children}
-      </Link>
-    );
-  };
-  
+export const HoveredLink = ({ children, ...rest }: any) => {
+  return (
+    <Link
+      {...rest}
+      className="text-neutral-700 dark:text-neutral-200 hover:text-black "
+    >
+      {children}
+    </Link>
+  );
+};
