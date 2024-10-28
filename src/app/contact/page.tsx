@@ -15,13 +15,13 @@ const ContactPage = () => {
       <div className="" /> {/* Full-page gradient */}
 
       {/* Contact form container */}
-      <div className="mt-6 py-8 relative shadow-xl bg-gray-900 border border-gray-800 w-full h-full overflow-hidden flex flex-col justify-end items-start">
-        <div className=" w-full h-full  flex items-center justify-center ">
+      <div className="py-60 relative shadow-xl bg-gray-900 border border-gray-800 w-full h-full overflow-hidden flex flex-col ">
+        <div className="w-full h-full    ">
           {/* Optional path or additional content */}
         </div>
 
         {/* Contact form */}
-        <div className="  my-8 space-y-10 max-w-md w-full mx-auto rounded-md p-4 shadow-lg bg-white dark:bg-gray-800">
+        <div className="  space-y-10 max-w-md w-full mx-auto rounded-md p-4 shadow-lg bg-white dark:bg-gray-800">
           <h2 className="space-y-4 text-xl font-bold text-gray-800 dark:text-white">Contact Us</h2>
 
           <form className="mt-6 space-y-4" onSubmit={handleSubmit}>
