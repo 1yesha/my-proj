@@ -4,14 +4,14 @@ import { AnimatedTooltip } from "./ui/animated-tooltip";
 
 const people = [
   {
-    id: 1,
+    id: 2,
     name: "Ayesha Saleem",
     designation: "Content writer",
     image: "/Ayesha.jpg"
     
   },
   {
-    id: 2,
+    id: 1,
     name: "Misbah Arshad",
     designation: "web developmennt",
     image:"/images.jpeg"
