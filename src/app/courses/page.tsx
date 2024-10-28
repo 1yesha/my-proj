@@ -1,4 +1,5 @@
-'use client'
+// Page.tsx
+'use client';
 
 import Image from "next/image";
 import React from "react";
@@ -6,13 +7,13 @@ import { CardBody, CardContainer, CardItem } from '@/components/ui/3d-card';
 import courseData from '@/data/code-courses.json';
 import Footer from '@/components/footer'; // Import Footer component
 
-function Page () {
+function Page() {
   return (
     <div className="min-h-screen bg-black justify-center py-12 pt-36">
       {/* Header Section */}
       <h1 className="text-lg md:text-7xl text-center font-sans font-bold mb-8 text-white">
         All courses ({courseData.courses.length})
-      </h1> 
+      </h1>
 
       {/* Courses Listing */}
       <div className="flex flex-wrap justify-center">
@@ -35,7 +36,7 @@ function Page () {
                 />
               </CardItem>
               <div className="flex justify-between items-center mt-20">
-                <CardItem translateZ={20} target="__blank" className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white">
+                <CardItem translateZ={20} as="a" target="_blank" className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white">
                   Try now →
                 </CardItem>
                 <CardItem translateZ={20} as="button" className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold">

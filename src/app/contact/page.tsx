@@ -42,7 +42,7 @@ const ContactPage = () => {
                 id="message"
                 rows={1}
                 placeholder="Message"
-                className="bg-black mt-1 p-2 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm text-slate-900"
+                className="bg-black mt-1 p-2 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm text-whitenp"
               ></textarea>
             </div>
 

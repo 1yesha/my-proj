@@ -1,13 +1,14 @@
 "use client";
 
-import { cn } from "@/lib/utils";
-
+import { cn } from "@/lib/utils"; // Ensure this utility is properly imported
 import React, {
   createContext,
   useState,
   useContext,
   useRef,
   useEffect,
+  useCallback,
+  HTMLAttributes,
 } from "react";
 
 const MouseEnterContext = createContext<
@@ -45,6 +46,7 @@ export const CardContainer = ({
     setIsMouseEntered(false);
     containerRef.current.style.transform = `rotateY(0deg) rotateX(0deg)`;
   };
+
   return (
     <MouseEnterContext.Provider value={[isMouseEntered, setIsMouseEntered]}>
       <div
@@ -94,8 +96,18 @@ export const CardBody = ({
     </div>
   );
 };
+interface CardItemProps<T extends HTMLElement = HTMLElement> extends HTMLAttributes<T> {
+  as?: React.ElementType; // Allow specifying different HTML elements
+  translateX?: number | string;
+  translateY?: number | string;
+  translateZ?: number | string;
+  rotateX?: number | string;
+  rotateY?: number | string;
+  rotateZ?: number | string;
+  target?: string; // Added target prop for links
+}
 
-export const CardItem = ({
+export const CardItem = <T extends HTMLElement>({
   as: Tag = "div",
   children,
   className,
@@ -106,44 +118,34 @@ export const CardItem = ({
   rotateY = 0,
   rotateZ = 0,
   ...rest
-}: {
-  as?: React.ElementType;
-  children: React.ReactNode;
-  className?: string;
-  translateX?: number | string;
-  translateY?: number | string;
-  translateZ?: number | string;
-  rotateX?: number | string;
-  rotateY?: number | string;
-  rotateZ?: number | string;
-  [key: string]: any;
-}) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const [isMouseEntered] = useMouseEnter();
+}: CardItemProps<T>) => {
+  const ref = useRef<T>(null);
+  const isMouseEntered = false; // Replace with your context if needed
 
-  useEffect(() => {
-    handleAnimations();
-  }, [isMouseEntered]);
-
-  const handleAnimations = () => {
+  const handleAnimations = useCallback(() => {
     if (!ref.current) return;
     if (isMouseEntered) {
       ref.current.style.transform = `translateX(${translateX}px) translateY(${translateY}px) translateZ(${translateZ}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotateZ(${rotateZ}deg)`;
     } else {
       ref.current.style.transform = `translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg)`;
     }
-  };
+  }, [isMouseEntered, translateX, translateY, translateZ, rotateX, rotateY, rotateZ]);
+
+  useEffect(() => {
+    handleAnimations(); // Run animations when dependencies change
+  }, [handleAnimations]);
 
   return (
     <Tag
       ref={ref}
       className={cn("w-fit transition duration-200 ease-linear", className)}
-      {...rest}
+      {...rest} // Spread rest props to allow target and other attributes
     >
       {children}
     </Tag>
   );
 };
+
 
 // Create a hook to use the context
 export const useMouseEnter = () => {
