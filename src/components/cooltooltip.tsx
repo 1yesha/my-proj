@@ -13,7 +13,7 @@ const people = [
     id: 2,
     name: "Ayesha Saleem",
     designation: "Content writer",
-    image: "/Ayesha.jpg"
+    image: "/ayesha.jpeg"
     
   },
   
